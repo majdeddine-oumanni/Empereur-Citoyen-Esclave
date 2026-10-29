@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emperor, Citizen, Slave - Game</title>
+  <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="output.css" />
+</head>
+
+<body class="flex min-h-screen flex-col bg-neutral-50 text-neutral-900 antialiased">
+
+  <header class="border-b border-neutral-200 bg-white">
+    <div class="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
+
+      <div class="flex items-center gap-3">
+        <div class="flex h-12 w-12 items-center justify-center rounded-full border border-neutral-200 bg-neutral-50 text-2xl">
+          <img src="./resources/frog.png" alt="frog" class="avatar">
+        </div>
+        <div class="leading-tight">
+          <p class="text-sm font-medium">You</p>
+          <p class="text-xs text-neutral-500">Score <span class="font-semibold text-neutral-900">0</span></p>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <p class="text-[10px] uppercase tracking-[0.3em] text-neutral-400">Round</p>
+        <p class="text-xl font-semibold tabular-nums">1<span class="text-neutral-300"> / 12</span></p>
+        <div class="mt-1 flex justify-center gap-1">
+          <span class="h-1.5 w-1.5 rounded-full bg-neutral-900"></span>
+          <span class="h-1.5 w-1.5 rounded-full bg-neutral-200"></span>
+          <span class="h-1.5 w-1.5 rounded-full bg-neutral-200"></span>
+          <span class="h-1.5 w-1.5 rounded-full bg-neutral-200"></span>
+          <span class="h-1.5 w-1.5 rounded-full bg-neutral-200"></span>
+          <span class="h-1.5 w-1.5 rounded-full bg-neutral-200"></span>
+          <span class="h-1.5 w-1.5 rounded-full bg-neutral-200"></span>
+          <span class="h-1.5 w-1.5 rounded-full bg-neutral-200"></span>
+          <span class="h-1.5 w-1.5 rounded-full bg-neutral-200"></span>
+          <span class="h-1.5 w-1.5 rounded-full bg-neutral-200"></span>
+          <span class="h-1.5 w-1.5 rounded-full bg-neutral-200"></span>
+          <span class="h-1.5 w-1.5 rounded-full bg-neutral-200"></span>
+        </div>
+      </div>
+
+      <div class="flex flex-row-reverse items-center gap-3 text-right">
+        <div class="flex h-12 w-12 items-center justify-center rounded-full border border-neutral-200 bg-neutral-50 text-2xl">
+          <img src="./resources/robot-assistant.png" alt="robot" class="avatar">
+        </div>
+        <div class="leading-tight">
+          <p class="text-sm font-medium">Computer</p>
+          <p class="text-xs text-neutral-500">Score <span class="font-semibold text-neutral-900">0</span></p>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+
+  <main class="mx-auto flex w-full max-w-5xl flex-1 flex-col justify-between gap-6 px-4 py-6 sm:px-6">
+
+    <div class="flex flex-col items-center gap-3">
+      <p class="text-xs uppercase tracking-[0.25em] text-neutral-400">Computer · Slave side</p>
+      <div id="computer-hand" class="flex justify-center gap-2 sm:gap-4">
+
+        <div class="card"><div class="card-inner">
+          <div class="card-face card-back"></div>
+          <div class="card-face card-front"><span class="card-corner">S</span><span class="card-symbol">⛓</span><span class="card-name">Slave</span></div>
+        </div></div>
+
+        <div class="card"><div class="card-inner">
+          <div class="card-face card-back"></div>
+          <div class="card-face card-front"><span class="card-corner">C</span><span class="card-symbol">♙</span><span class="card-name">Citizen</span></div>
+        </div></div>
+
+        <div class="card"><div class="card-inner">
+          <div class="card-face card-back"></div>
+          <div class="card-face card-front"><span class="card-corner">C</span><span class="card-symbol">♙</span><span class="card-name">Citizen</span></div>
+        </div></div>
+
+        <div class="card"><div class="card-inner">
+          <div class="card-face card-back"></div>
+          <div class="card-face card-front"><span class="card-corner">C</span><span class="card-symbol">♙</span><span class="card-name">Citizen</span></div>
+        </div></div>
+
+      </div>
+    </div>
+
+
+    <div class="flex items-center justify-center gap-6 sm:gap-12">
+
+      <div class="flex flex-col items-center gap-2">
+        <div class="slot"><span class="text-xs text-neutral-300">empty</span></div>
+        <p class="text-xs uppercase tracking-widest text-neutral-400">Computer</p>
+      </div>
+
+      <span class="text-sm font-semibold tracking-widest text-neutral-300">VS</span>
+
+      <div class="flex flex-col items-center gap-2">
+        <div class="slot"><span class="text-xs text-neutral-300">empty</span></div>
+        <p class="text-xs uppercase tracking-widest text-neutral-400">You</p>
+      </div>
+
+    </div>
+
+
+    <div class="flex flex-col items-center gap-3">
+      <div id="player-hand" class="flex justify-center gap-2 sm:gap-4">
+
+        <button type="button" class="card card-playable" aria-label="Emperor card"><div class="card-inner">
+          <div class="card-face card-back"></div>
+          <div class="card-face card-front"><span class="card-corner">E</span><span class="card-symbol">♔</span><span class="card-name">Emperor</span></div>
+        </div></button>
+
+        <button type="button" class="card card-playable" aria-label="Citizen card"><div class="card-inner">
+          <div class="card-face card-back"></div>
+          <div class="card-face card-front"><span class="card-corner">C</span><span class="card-symbol">♙</span><span class="card-name">Citizen</span></div>
+        </div></button>
+
+        <button type="button" class="card card-playable" aria-label="Citizen card"><div class="card-inner">
+          <div class="card-face card-back"></div>
+          <div class="card-face card-front"><span class="card-corner">C</span><span class="card-symbol">♙</span><span class="card-name">Citizen</span></div>
+        </div></button>
+
+        <button type="button" class="card card-playable" aria-label="Citizen card"><div class="card-inner">
+          <div class="card-face card-back"></div>
+          <div class="card-face card-front"><span class="card-corner">C</span><span class="card-symbol">♙</span><span class="card-name">Citizen</span></div>
+        </div></button>
+
+      </div>
+      <p class="text-xs uppercase tracking-[0.25em] text-neutral-400">You · Emperor side · pick a card</p>
+    </div>
+
+  </main>
+
+
+
+  <footer class="border-t border-neutral-200 bg-white">
+    <div class="mx-auto flex max-w-5xl items-center justify-between px-4 py-3 sm:px-6">
+      <a href="./index.html" class="text-sm text-neutral-500 transition hover:text-neutral-900">← Back</a>
+      <button id="deal-btn" type="button" class="rounded-lg border border-neutral-300 px-4 py-2 text-sm font-medium transition hover:bg-neutral-100">
+        Deal again
+      </button>
+    </div>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+</html>

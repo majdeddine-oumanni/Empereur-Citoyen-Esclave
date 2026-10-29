@@ -10,7 +10,6 @@
 
 <body class="bg-neutral-50 text-neutral-900 antialiased">
  
-  <!-- START SCREEN (create profile) -->
   <main class="min-h-screen flex items-center justify-center p-6">
     <section class="w-full max-w-md bg-white border border-neutral-200 rounded-2xl p-8 shadow-sm">
  
@@ -41,7 +40,7 @@
           <div class="grid grid-cols-3 gap-3">
  
             <label class="cursor-pointer">
-              <input type="radio" name="avatar" value="fox" class="peer sr-only" checked />
+              <input type="radio" name="avatar" value="penguin" class="peer sr-only" checked />
               <span class="flex aspect-square items-center justify-center rounded-xl border border-neutral-200 bg-neutral-50 text-4xl transition hover:bg-neutral-100 peer-checked:border-neutral-900 peer-checked:bg-white peer-checked:ring-2 peer-checked:ring-neutral-900 peer-focus-visible:ring-2">
                 <img src="./resources/penguin.png" alt="penguin" class="avatar">
               </span>
@@ -50,32 +49,42 @@
  
             <label class="cursor-pointer">
               <input type="radio" name="avatar" value="panda" class="peer sr-only" />
-              <span class="flex aspect-square items-center justify-center rounded-xl border border-neutral-200 bg-neutral-50 text-4xl transition hover:bg-neutral-100 peer-checked:border-neutral-900 peer-checked:bg-white peer-checked:ring-2 peer-checked:ring-neutral-900 peer-focus-visible:ring-2">🐼</span>
+              <span class="flex aspect-square items-center justify-center rounded-xl border border-neutral-200 bg-neutral-50 text-4xl transition hover:bg-neutral-100 peer-checked:border-neutral-900 peer-checked:bg-white peer-checked:ring-2 peer-checked:ring-neutral-900 peer-focus-visible:ring-2">
+                <img src="./resources/panda.png" alt="panda" class="avatar">
+              </span>
               <span class="sr-only">Panda</span>
             </label>
  
             <label class="cursor-pointer">
               <input type="radio" name="avatar" value="lion" class="peer sr-only" />
-              <span class="flex aspect-square items-center justify-center rounded-xl border border-neutral-200 bg-neutral-50 text-4xl transition hover:bg-neutral-100 peer-checked:border-neutral-900 peer-checked:bg-white peer-checked:ring-2 peer-checked:ring-neutral-900 peer-focus-visible:ring-2">🦁</span>
+              <span class="flex aspect-square items-center justify-center rounded-xl border border-neutral-200 bg-neutral-50 text-4xl transition hover:bg-neutral-100 peer-checked:border-neutral-900 peer-checked:bg-white peer-checked:ring-2 peer-checked:ring-neutral-900 peer-focus-visible:ring-2">
+                <img src="./resources/lion.png" alt="lion" class="avatar">
+              </span>
               <span class="sr-only">Lion</span>
             </label>
  
             <label class="cursor-pointer">
               <input type="radio" name="avatar" value="frog" class="peer sr-only" />
-              <span class="flex aspect-square items-center justify-center rounded-xl border border-neutral-200 bg-neutral-50 text-4xl transition hover:bg-neutral-100 peer-checked:border-neutral-900 peer-checked:bg-white peer-checked:ring-2 peer-checked:ring-neutral-900 peer-focus-visible:ring-2">🐸</span>
+              <span class="flex aspect-square items-center justify-center rounded-xl border border-neutral-200 bg-neutral-50 text-4xl transition hover:bg-neutral-100 peer-checked:border-neutral-900 peer-checked:bg-white peer-checked:ring-2 peer-checked:ring-neutral-900 peer-focus-visible:ring-2">
+                <img src="./resources/frog.png" alt="frog" class="avatar">
+              </span>
               <span class="sr-only">Frog</span>
             </label>
  
             <label class="cursor-pointer">
               <input type="radio" name="avatar" value="octopus" class="peer sr-only" />
-              <span class="flex aspect-square items-center justify-center rounded-xl border border-neutral-200 bg-neutral-50 text-4xl transition hover:bg-neutral-100 peer-checked:border-neutral-900 peer-checked:bg-white peer-checked:ring-2 peer-checked:ring-neutral-900 peer-focus-visible:ring-2">🐙</span>
+              <span class="flex aspect-square items-center justify-center rounded-xl border border-neutral-200 bg-neutral-50 text-4xl transition hover:bg-neutral-100 peer-checked:border-neutral-900 peer-checked:bg-white peer-checked:ring-2 peer-checked:ring-neutral-900 peer-focus-visible:ring-2">
+                <img src="./resources/octopus.png" alt="penguin" class="avatar">
+              </span>
               <span class="sr-only">Octopus</span>
             </label>
  
             <label class="cursor-pointer">
-              <input type="radio" name="avatar" value="owl" class="peer sr-only" />
-              <span class="flex aspect-square items-center justify-center rounded-xl border border-neutral-200 bg-neutral-50 text-4xl transition hover:bg-neutral-100 peer-checked:border-neutral-900 peer-checked:bg-white peer-checked:ring-2 peer-checked:ring-neutral-900 peer-focus-visible:ring-2">🦉</span>
-              <span class="sr-only">Owl</span>
+              <input type="radio" name="avatar" value="wolf" class="peer sr-only" />
+              <span class="flex aspect-square items-center justify-center rounded-xl border border-neutral-200 bg-neutral-50 text-4xl transition hover:bg-neutral-100 peer-checked:border-neutral-900 peer-checked:bg-white peer-checked:ring-2 peer-checked:ring-neutral-900 peer-focus-visible:ring-2">
+                <img src="./resources/wolf.png" alt="wolf" class="avatar">
+              </span>
+              <span class="sr-only">Wolf</span>
             </label>
  
           </div>
@@ -88,6 +97,12 @@
           Start game
         </button>
       </form>
+    </section>
+    <section class="w-full max-w-md bg-white border border-neutral-200 rounded-2xl p-8 shadow-sm ml-16">
+      <div class="flex">
+        <img src="./resources/penguin.png" alt="penguin" class="avatar mr-2">
+        <h3 class="text-sm font-medium mt-2">name</h3>
+      </div>
     </section>
   </main>
  
