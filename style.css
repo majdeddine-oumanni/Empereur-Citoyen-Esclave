@@ -2,8 +2,8 @@
 
 
 .card {
-  --card-w: 5.25rem;
-  --card-h: 7.5rem;
+  --card-w: 84px;
+  --card-h: 120px;
   width: var(--card-w);
   height: var(--card-h);
   perspective: 800px;
@@ -11,7 +11,7 @@
   border: 0;
   padding: 0;
   cursor: default;
-  /* deal animation start state */
+  overflow: hidden;
   opacity: 0;
   transform: translateY(-40px) scale(0.9);
   transition: opacity 0.35s ease, transform 0.35s ease;
@@ -19,18 +19,19 @@
 
 @media (min-width: 640px) {
   .card {
-    --card-w: 7rem;
-    --card-h: 10rem;
+    --card-w: 112px;
+    --card-h: 175px;
   }
 }
 
-/* Dealt = card has landed in its spot */
 .card.dealt {
   opacity: 1;
   transform: translateY(0) scale(1);
 }
 
-/* ---------- 3D flip ---------- */
+.card-img{
+  object-fit: cover;
+}
 .card-inner {
   position: relative;
   width: 100%;
@@ -46,14 +47,13 @@
 .card-face {
   position: absolute;
   inset: 0;
-  border-radius: 0.75rem;
+  border-radius: 12px;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   border: 1px solid #d4d4d4;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
 }
 
-/* ---------- Card back (minimal pattern) ---------- */
 .card-back {
   background-color: #171717;
   background-image:
@@ -65,12 +65,11 @@
 .card-back::after {
   content: "";
   position: absolute;
-  inset: 0.5rem;
+  inset: 8px;
   border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 0.5rem;
+  border-radius: 8px;
 }
 
-/* ---------- Card front ---------- */
 .card-front {
   transform: rotateY(180deg);
   background: #ffffff;
@@ -78,37 +77,36 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.35rem;
+  gap: 5.6px;
 }
 
 .card-corner {
   position: absolute;
-  top: 0.45rem;
-  left: 0.6rem;
-  font-size: 0.7rem;
+  top: 7.2px;
+  left: 9.6px;
+  font-size: 11.2px;
   font-weight: 600;
   color: #737373;
 }
 
 .card-symbol {
-  font-size: 2.25rem;
+  font-size: 36px;
   line-height: 1;
   color: #171717;
 }
 
 .card-name {
-  font-size: 0.65rem;
+  font-size: 10.4px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: #737373;
 }
 
 @media (min-width: 640px) {
-  .card-symbol { font-size: 3rem; }
-  .card-name   { font-size: 0.7rem; }
+  .card-symbol { font-size: 48px; }
+  .card-name   { font-size: 11.2px; }
 }
 
-/* ---------- Player cards: hover / select (pure CSS) ---------- */
 .card-playable {
   cursor: pointer;
 }
@@ -117,7 +115,6 @@
   transform: translateY(-10px);
 }
 
-/* Focus (click / tab) = "picked" look */
 .card-playable.dealt:focus {
   outline: none;
   transform: translateY(-20px);
@@ -134,20 +131,20 @@
 
 
 .slot {
-  width: 5.25rem;
-  height: 7.5rem;
+  width: 84px;
+  height: 120px;
   border: 1.5px dashed #d4d4d4;
-  border-radius: 0.75rem;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .avatar{
-    width: 2.25rem;
+    width: 36px;
 }
 
 @media (min-width: 640px) {
-  .slot { width: 7rem; height: 10rem; }
+  .slot { width: 112px; height: 160px; }
 }
 
 
