@@ -9,18 +9,18 @@
 </head>
 
 <body class="bg-neutral-50 text-neutral-900 antialiased">
- 
-  <main class="min-h-screen flex items-center justify-center p-6">
+
+  <main class="min-h-screen flex flex-col lg:flex-row items-center justify-center gap-8 p-6">
+
     <section class="w-full max-w-md bg-white border border-neutral-200 rounded-2xl p-8 shadow-sm">
- 
+
       <header class="text-center mb-8">
         <p class="text-xs uppercase tracking-[0.3em] text-neutral-400 mb-2">Card game</p>
         <h1 class="text-3xl font-semibold tracking-tight">Emperor, Citizen, Slave</h1>
         <p class="text-sm text-neutral-500 mt-2">Create your profile to start playing against the computer.</p>
       </header>
- 
-      <form class="space-y-8" action="./game.html" method="get">
- 
+
+      <form class="space-y-8" action="./game.html" method="get" id="player-form">
 
         <div>
           <label for="player-name" class="block text-sm font-medium mb-2">Your name</label>
@@ -29,82 +29,92 @@
             name="name"
             type="text"
             maxlength="16"
-            required
             placeholder="Enter your name"
             class="w-full rounded-lg border border-neutral-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-neutral-900 focus:ring-1 focus:ring-neutral-900"
           />
+          <p class="text-sm text-neutral-500 mt-2" id="error"></p>
         </div>
- 
+
         <fieldset>
           <legend class="block text-sm font-medium mb-3">Choose your avatar</legend>
           <div class="grid grid-cols-3 gap-3">
- 
+
             <label class="cursor-pointer">
-              <input type="radio" name="avatar" value="penguin" class="peer sr-only" checked />
+              <input type="radio" name="avatar" value="penguin" class="peer sr-only player-avatar" checked />
               <span class="flex aspect-square items-center justify-center rounded-xl border border-neutral-200 bg-neutral-50 text-4xl transition hover:bg-neutral-100 peer-checked:border-neutral-900 peer-checked:bg-white peer-checked:ring-2 peer-checked:ring-neutral-900 peer-focus-visible:ring-2">
                 <img src="./resources/penguin.png" alt="penguin" class="avatar">
               </span>
               <span class="sr-only">Penguin</span>
             </label>
- 
+
             <label class="cursor-pointer">
-              <input type="radio" name="avatar" value="panda" class="peer sr-only" />
+              <input type="radio" name="avatar" value="panda" class="peer sr-only player-avatar" />
               <span class="flex aspect-square items-center justify-center rounded-xl border border-neutral-200 bg-neutral-50 text-4xl transition hover:bg-neutral-100 peer-checked:border-neutral-900 peer-checked:bg-white peer-checked:ring-2 peer-checked:ring-neutral-900 peer-focus-visible:ring-2">
                 <img src="./resources/panda.png" alt="panda" class="avatar">
               </span>
               <span class="sr-only">Panda</span>
             </label>
- 
+
             <label class="cursor-pointer">
-              <input type="radio" name="avatar" value="lion" class="peer sr-only" />
+              <input type="radio" name="avatar" value="lion" class="peer sr-only player-avatar" />
               <span class="flex aspect-square items-center justify-center rounded-xl border border-neutral-200 bg-neutral-50 text-4xl transition hover:bg-neutral-100 peer-checked:border-neutral-900 peer-checked:bg-white peer-checked:ring-2 peer-checked:ring-neutral-900 peer-focus-visible:ring-2">
                 <img src="./resources/lion.png" alt="lion" class="avatar">
               </span>
               <span class="sr-only">Lion</span>
             </label>
- 
+
             <label class="cursor-pointer">
-              <input type="radio" name="avatar" value="frog" class="peer sr-only" />
+              <input type="radio" name="avatar" value="frog" class="peer sr-only player-avatar" />
               <span class="flex aspect-square items-center justify-center rounded-xl border border-neutral-200 bg-neutral-50 text-4xl transition hover:bg-neutral-100 peer-checked:border-neutral-900 peer-checked:bg-white peer-checked:ring-2 peer-checked:ring-neutral-900 peer-focus-visible:ring-2">
                 <img src="./resources/frog.png" alt="frog" class="avatar">
               </span>
               <span class="sr-only">Frog</span>
             </label>
- 
+
             <label class="cursor-pointer">
-              <input type="radio" name="avatar" value="octopus" class="peer sr-only" />
+              <input type="radio" name="avatar" value="octopus" class="peer sr-only player-avatar" />
               <span class="flex aspect-square items-center justify-center rounded-xl border border-neutral-200 bg-neutral-50 text-4xl transition hover:bg-neutral-100 peer-checked:border-neutral-900 peer-checked:bg-white peer-checked:ring-2 peer-checked:ring-neutral-900 peer-focus-visible:ring-2">
-                <img src="./resources/octopus.png" alt="penguin" class="avatar">
+                <img src="./resources/octopus.png" alt="octopus" class="avatar">
               </span>
               <span class="sr-only">Octopus</span>
             </label>
- 
+
             <label class="cursor-pointer">
-              <input type="radio" name="avatar" value="wolf" class="peer sr-only" />
+              <input type="radio" name="avatar" value="wolf" class="peer sr-only player-avatar" />
               <span class="flex aspect-square items-center justify-center rounded-xl border border-neutral-200 bg-neutral-50 text-4xl transition hover:bg-neutral-100 peer-checked:border-neutral-900 peer-checked:bg-white peer-checked:ring-2 peer-checked:ring-neutral-900 peer-focus-visible:ring-2">
                 <img src="./resources/wolf.png" alt="wolf" class="avatar">
               </span>
               <span class="sr-only">Wolf</span>
             </label>
- 
+
           </div>
         </fieldset>
- 
+
         <button
           type="submit"
-          class="block w-full rounded-lg bg-neutral-900 py-3 text-center text-sm font-medium text-white transition hover:bg-neutral-700"
+          class="block w-full rounded-lg bg-neutral-900 py-3 text-center text-sm font-medium text-white transition hover:bg-neutral-700 cursor-pointer"
         >
-          Start game
+          Add player
         </button>
       </form>
     </section>
-    <section class="w-full max-w-md bg-white border border-neutral-200 rounded-2xl p-8 shadow-sm ml-16">
-      <div class="flex">
-        <img src="./resources/penguin.png" alt="penguin" class="avatar mr-2">
-        <h3 class="text-sm font-medium mt-2">name</h3>
-      </div>
+
+
+    <section class="w-full max-w-md bg-white border border-neutral-200 rounded-2xl p-8 shadow-sm" id="players_container">
+
+      <header class="mb-6">
+        <p class="text-xs uppercase tracking-[0.3em] text-neutral-400 mb-1">Accounts</p>
+        <h2 class="text-xl font-semibold tracking-tight">Who's playing?</h2>
+      </header>
+
+
+      <ul id="players_list" class="space-y-3">
+
+      </ul>
     </section>
+
   </main>
- 
+
+  <script type="module" src="./src/players.js"></script>
 </body>
 </html>
