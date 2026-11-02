@@ -1,4 +1,6 @@
-let players = [];
+import { getData, setData } from "../src/storage.js";
+
+export let players = getData('players') || [];
 
 let currentPlayer = null;
 
@@ -98,6 +100,7 @@ function formValidation(){
                 };
                 players.push(newPlayer);
             }
+            setData("players", players);
             name.value = "";
             renderPlayers();
         }
