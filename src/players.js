@@ -4,6 +4,8 @@ export let players = getData('players') || [];
 
 let currentPlayer = null;
 
+let activePlayerId = getData("activePlayerId") || null;
+
 function error(id, msg, inputId) {
   const errorEL = document.getElementById(id);
   errorEL.innerHTML = msg;
@@ -48,6 +50,12 @@ function renderPlayers(){
         `
     } else {
         players.forEach((player)=>{
+            let arrow = "";
+            let isActive = false;
+            if(player.id == activePlayerId){
+                arrow = '<a href="./game.html" class="go-arrow"> <img src="./resources/right-arrow.png"> </a>'
+                isActive = true;
+            }
             players_container.innerHTML += `
                 <li class="player-row rounded-xl border border-neutral-200 bg-neutral-50 p-3" data-id="1">
                 <div class="flex items-center gap-3">
@@ -55,6 +63,9 @@ function renderPlayers(){
                     <img src="./resources/${player.avatar}.png" alt="penguin" class="avatar">
                     </div>
                     <h3 class="min-w-0 flex-1 truncate text-sm font-medium">${player.nickname}</h3>
+                    <div>
+                        ${arrow}
+                    </div>
                 </div>
 
                 <div class="mt-3 grid grid-cols-3 gap-2">
@@ -66,18 +77,19 @@ function renderPlayers(){
                     class="cursor-pointer rounded-lg border border-neutral-300 bg-white px-3 py-2 text-xs font-medium text-neutral-500 transition hover:border-neutral-900 hover:text-neutral-900 delete-button">
                     Delete
                     </button>
-                    <button type="button" data-action="play"
-                    class="cursor-pointer rounded-lg bg-neutral-900 px-3 py-2 text-xs font-medium text-white transition hover:bg-neutral-700">
-                    Play
+                    <button type="button" data-action="play" ${isActive ? "disabled": ""}
+                    class="${isActive ? "cursor-default border border-neutral-900 bg-white text-neutral-900 activate-button" : "cursor-pointer rounded-lg bg-neutral-900 px-3 py-2 text-xs font-medium text-white transition hover:bg-neutral-700 activate-button"}" data-player_id="${player.id}">
+                    ${isActive ? "Active": "Activate"}
                     </button>
                 </div>
-                </li>
+            </li>
             `
         })
     }
 
     updatePlayer();
     deletePlayer();
+    activateAccount();
 }
 
 function formValidation(){
@@ -147,6 +159,24 @@ function deletePlayer(){
     })
 
 }
-deletePlayer();
+
+
+function activateAccount(){
+    const activateButtons = document.querySelectorAll(".activate-button");
+    activateButtons.forEach((button)=>{
+        button.addEventListener('click', (e)=>{
+            activePlayerId = e.currentTarget.dataset.player_id;
+            setData("activePlayerId", activePlayerId);
+            renderPlayers();
+        })
+    })
+}
+
+
 renderPlayers();
+
 formValidation();
+
+deletePlayer();
+
+activateAccount();
