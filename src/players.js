@@ -62,7 +62,8 @@ function renderPlayers(){
                     Update
                     </button>
                     <button type="button" data-action="delete"
-                    class="cursor-pointer rounded-lg border border-neutral-300 bg-white px-3 py-2 text-xs font-medium text-neutral-500 transition hover:border-neutral-900 hover:text-neutral-900">
+                    data-player_id="${player.id}"
+                    class="cursor-pointer rounded-lg border border-neutral-300 bg-white px-3 py-2 text-xs font-medium text-neutral-500 transition hover:border-neutral-900 hover:text-neutral-900 delete-button">
                     Delete
                     </button>
                     <button type="button" data-action="play"
@@ -76,6 +77,7 @@ function renderPlayers(){
     }
 
     updatePlayer();
+    deletePlayer();
 }
 
 function formValidation(){
@@ -130,5 +132,21 @@ function updatePlayer(){
     })
 }
 
+function deletePlayer(){
+    const deleteButtons = document.querySelectorAll(".delete-button");
+    deleteButtons.forEach((button)=>{
+        button.addEventListener('click', (e)=>{
+            const player_id = e.currentTarget.dataset.player_id;
+
+            players = players.filter((player) => player.id != player_id);
+
+            setData("players", players);
+
+            renderPlayers();
+        })
+    })
+
+}
+deletePlayer();
 renderPlayers();
 formValidation();
