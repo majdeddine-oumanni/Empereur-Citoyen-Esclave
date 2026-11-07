@@ -1,3 +1,7 @@
+import { placeCards, handCard, cardsTypes } from "../src/game.js";
+
+placeCards(cardsTypes);
+
 const allCards = document.querySelectorAll('.card');
 const playerCards = document.querySelectorAll("#player-hand .card");
 const dealBtn = document.getElementById('deal-btn');
@@ -18,6 +22,7 @@ function dealCards(){
     });
 
 }
+handCard();
 
 // playerCards.forEach((card)=>{
 //     card.addEventListener('dblclick', () => card.classList.toggle('flipped'));
