@@ -174,3 +174,22 @@
   width: 14px;
   height: 14px;
 }
+
+.table-card {
+  --card-w: 84px;
+  --card-h: 120px;
+  width: var(--card-w);
+  height: var(--card-h);
+  perspective: 800px;
+}
+
+@media (min-width: 640px) {
+  .table-card {
+    --card-w: 112px;
+    --card-h: 175px;
+  }
+}
+
+.table-card .card-inner {
+  transform: rotateY(180deg);
+}
